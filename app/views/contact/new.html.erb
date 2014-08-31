@@ -1,0 +1,44 @@
+<div class='login-container'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-4 col-sm-offset-4'>
+        <h1 class='text-center title'>Contact Us</h1>
+
+        <%= render partial: 'shared/flash_messages' %>
+
+        <%= form_for @contact_form, url: make_contact_path, html: {novalidate: 'novalidate', class: 'form validate-form' } do |f| %>
+          <div class="form-group" style="display:none">
+            <div class="controls">
+              <%= f.text_field :nickname %>
+            </div>
+          </div>
+
+          <% email_errors = @contact_form.errors[:email] %>
+          <div class="form-group <%= 'has-error' if email_errors.present? %>">
+            <div class="controls with-icon-over-input">
+              <%= f.text_field :email, 'data-rule-required' => true, 'class' => 'form-control', 'Placeholder' => 'E-mail', 'type' => 'email', 'spellcheck' => 'false' %>
+              <i class='icon-user text-muted'></i>
+            </div>
+            <% email_errors and email_errors.each do |error_msg| %>
+              <span class="help-block has-error"><%= error_msg %></span>
+            <% end %>
+          </div>
+
+          <% message_errors = @contact_form.errors[:message] %>
+          <div class="form-group <%= 'has-error' if message_errors.present? %>">
+            <div class="controls">
+              <%= f.text_area :message, :class => 'form-control', :placeholder => 'Message', :rows => 15, 'data-rule-required' => true %>
+            </div>
+            <% message_errors and message_errors.each do |error_msg| %>
+              <span class="help-block has-error"><%= error_msg %></span>
+            <% end %>
+          </div>
+
+          <%= f.submit "Send", class: 'btn btn-block' %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/sign_up_footer' %>

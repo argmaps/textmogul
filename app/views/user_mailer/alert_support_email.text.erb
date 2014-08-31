@@ -1,0 +1,7 @@
+Name: <%= @user.first_name %> <%= @user.last_name %>
+Email: <%= @user.email %>
+Plan: <%= @account.plan.name %>
+Domains:
+<%= @account.domains.each do |d| %>
+  <%= d.domain %>
+<% end %>

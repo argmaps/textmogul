@@ -1,0 +1,43 @@
+<div class='login-container-header'>
+  <div class='container'>
+    <div class='row' id='homepage-header-row'>
+      <div class='col-sm-12'>
+        <div class='text-center'>
+          <%= image_tag 'marketing/homepage-logo.png', id: 'logo', class: 'img-responsive' %>
+          <h1 id="pitch">Monetize your audience with subscription text messages</h1>
+          <div id="sign-up-row">
+            <a id="sign-up-button" href="#pricing">Sign up free</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="login-container homepage">
+  <div class="container">
+    <div class="row marketing">
+
+      <%= simple_form_for(User.new, url: users_path, verb: :post, html: {class: 'form-vertical'}) do |f| %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :subdomain %>
+        <%= f.input :stripe_secret_key %>
+        <%= f.input :stripe_publishable_key %>
+        <%= f.submit 'Sign up', class: 'btn btn-lg btn-primary' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div class='login-container-footer'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <div class='text-center'>
+          © TextMogul Inc. 2014
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

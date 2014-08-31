@@ -1,0 +1,30 @@
+.creative-branch {
+  padding: 20px 15px;
+  &:hover {
+    border: 1px solid #bbb;
+    padding: 19px 14px;
+  }
+}
+
+#creative-status {
+  margin: 0px 10px 20px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  padding: 10px;
+
+  p {
+    margin: 0;
+    float: left;
+  }
+  p ~ form {
+    float: right;
+    padding-top: 3px;
+  }
+}
+
+#preview-creative {
+  padding: 8px 10px 10px 10px;
+  margin-left: 20px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+}

@@ -1,0 +1,9 @@
+<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+<p>Email: <%= mail_to @user.email %></p>
+<p>Plan: <%= @account.plan.name %></p>
+<p>Domains:</p>
+<% @account.domains.each do |d| %>
+<p>
+<a href="http://<%= d.domain %>"><%= d.domain %></a>
+</p>
+<% end %>

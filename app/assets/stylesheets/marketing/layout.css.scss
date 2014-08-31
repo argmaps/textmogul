@@ -1,0 +1,256 @@
+$light-pink: #ffb9b5;
+$bright-red: #f34541;
+
+.top-container {
+  a {
+    color: #fff;
+  }
+  .nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: underline;
+    background-color: transparent;
+  }
+}
+
+#pricing-table {
+  padding-top: 20px;
+
+  .pricing-table .price {
+    width: 70%;
+    margin: 0 auto;
+    height: inherit;
+    left: inherit;
+    position: relative;
+    top: -25px;
+  }
+
+  .features {
+    padding-top: 0;
+  }
+}
+
+#free-trial {
+  padding-top: 20px;
+  font-family: 'Reenie Beanie', handwriting;
+  font-size: 50px;
+  line-height: 50px;
+  span {
+    color: $bright-red;
+  }
+}
+
+body, #pitch, #sub-pitch {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 400;
+}
+
+.navbar-nav a {
+  font-size: 18px;
+}
+
+.navbar, #homepage-header-row, #pitch {
+  color: #fff;
+}
+
+#brand {
+  font-size: 24px;
+  font-weight: 400;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#logo {
+  margin: 0 auto;
+}
+
+#pitch {
+  font-size: 44px;
+  margin-top: 10px;
+
+  #hello {
+    font-weight: bold;
+  }
+}
+
+#sub-pitch {
+  color: $light-pink;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+#pitch-story {
+  font-size: 17px;
+  line-height: 30px;
+}
+
+#try-it {
+  width: 308px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  h3 {
+    text-decoration: underline;
+    font-family: 'Reenie Beanie';
+    font-size: 60px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-family: 'Reenie Beanie';
+    font-size: 36px;
+    line-height: 40px;
+    padding-top: 10px;
+  }
+}
+
+.homepage {
+  h3 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  h3 ~ h3 {
+    padding-top: 20px;
+  }
+  h3 + p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  #example {
+    .browser {
+      width: 100%;
+      max-width: 353px;
+      height: 100%;
+    }
+
+    .browser-viewport {
+      overflow: hidden;
+      height: 170px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    p {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      max-width: 353px;
+    }
+  }
+}
+
+
+#sign-up-row {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 20px;
+}
+
+#sign-up-button {
+  border: 2px solid white;
+  padding: 15px;
+  color: #fff;
+
+  &:hover {
+    border: 4px solid white;
+    text-decoration: none;
+  }
+}
+
+.marketing {
+  p + h4, .col-lg-6 > h4 {
+    margin-top: 28px;
+  }
+}
+
+#testimonial {
+  margin-top: 20px;
+}
+
+#testimonial-inner {
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.pricing-tables .pricing-table {
+  .header, .footer {
+    background-color: #E8EBEB;
+  }
+}
+
+.annual-plans {
+  display: none;
+}
+
+.toggle-plan-interval {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+
+  border: 2px solid $bright-red;
+  padding: 15px;
+  color: $bright-red;
+  background-color: white;
+
+  &:hover {
+    background-color: $bright-red;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+#show-monthly-plans {
+  display: none;
+}
+
+#legal-body, .support {
+  background: white;
+}
+
+@media (min-width: 768px) {
+  .marketing .navbar .container {
+    max-width: 1300px !important;
+  }
+  .marketing .container {
+    max-width: 730px !important;
+  }
+}
+
+@media (max-height: 640px) {
+  body.login {
+    .login-container {
+      padding-top: 20px;
+    }
+
+    .login-container-header {
+      padding-top: 0;
+      padding-bottom: 20px;
+    }
+  }
+
+  .navbar {
+    margin-bottom: 0;
+    min-height: 40px;
+  }
+
+  .navbar-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #homepage-header-row {
+    margin-top: -20px;
+  }
+
+  #pitch {
+    margin: 0;
+  }
+}

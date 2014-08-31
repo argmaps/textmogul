@@ -1,0 +1,66 @@
+<%= page_header_title 'Settings' %>
+
+<%= render partial: 'shared/flash_messages' %>
+
+<div class="row">
+  <div class='tabbable'>
+    <ul class='nav nav-responsive nav-tabs'>
+      <li class='active'>
+        <a data-toggle='tab' href='#general'>
+          General
+        </a>
+      </li>
+      <li>
+        <a data-toggle='tab' href='#mailing-services'>
+          Mailing Services
+        </a>
+      </li>
+      <li>
+        <a data-toggle='tab' href='#embed-code'>
+          Embed Code
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="general" class="tab-pane active col-sm-5">
+        <%= form_for(@user, html: {method: 'put', novalidate: 'novalidate', class: 'form validate-form'}) do |f| %>
+
+          <% email_errors = @user.errors.messages[:email] %>
+          <div class="form-group <%= 'has-error' if email_errors.present? %>">
+            <%= f.label :email %>
+            <div class="controls">
+              <%= f.text_field :email, 'data-rule-required' => true, 'data-rule-email' => true, 'class' => 'form-control', 'type' => 'email' %>
+            </div>
+            <% email_errors and email_errors.each do |error_msg| %>
+              <span class="help-block has-error"><%= error_msg %></span>
+            <% end %>
+          </div>
+
+          <% password_errors = @user.errors.messages[:password] %>
+          <div class="form-group <%= 'has-error' if password_errors.present? %>">
+            <%= f.label :password, 'New Password' %>
+            <div class="controls">
+              <%= f.password_field :password, 'data-rule-minlength' => '6', 'class' => 'form-control' %>
+            </div>
+            <% password_errors and password_errors.each do |error_msg| %>
+              <span class="help-block has-error"><%= error_msg %></span>
+            <% end %>
+          </div>
+
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+      <div id="mailing-services" class="tab-pane col-sm-5">
+        <%= simple_form_for(@account) do |f| %>
+          <%= f.input :mailchimp_api_key, label: 'MailChimp API Key', hint: link_to('How do I find this?', page_path('support/mailchimp'), target: '_blank') %>
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+      <div id="embed-code" class="tab-pane col-sm-5">
+        <p>Paste your Rebound embed code right before the closing <code><tt>&lt;/body&gt;</tt></code> tag on your site.</p>
+        <%= render 'shared/embed_code' %>
+      </div>
+    </div>
+  </div>
+</div>

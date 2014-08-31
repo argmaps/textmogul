@@ -1,0 +1,82 @@
+$footer-height: 60px;
+
+.login #logo {
+  margin: 0 auto;
+}
+.admin #logo {
+  display: inline;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+#brand {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #fff;
+}
+.admin #brand {
+  font-size: 24px;
+  margin: 0;
+}
+
+#main-container {
+  padding-bottom: $footer-height;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  height: $footer-height;
+}
+
+#brand-link {
+  text-decoration: none;
+}
+
+.page-header .breadcrumb {
+  line-height: inherit;
+}
+
+.card-container {
+  padding-bottom: 20px;
+}
+
+#cc-expiry {
+  padding-left: 0;
+}
+
+#sign-up-button-container, #sign-up-button-container .form-controls {
+  padding-top: 25px;
+}
+
+/* For mobiles & any other devices < 768px wide */
+@media (max-width: 768px) {
+  #content, body.main-nav-opened #content {
+    margin-left: 0;
+  }
+
+  #main-nav-bg {
+    display: none;
+  }
+
+  #main-nav, body.main-nav-opened #main-nav {
+    display: block;
+    position: inherit;
+    width: auto;
+
+    .navigation > .nav > li span {
+      display: inline !important;
+    }
+
+    .navigation .search {
+      display: none;
+    }
+  }
+
+  body.main-nav-closed #main-nav{
+    display: none;
+  }
+}

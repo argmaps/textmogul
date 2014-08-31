@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Textmogul</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
+<!DOCTYPE html>
+    <head>
+        <title>TextMogul</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <%= javascript_include_tag "vendor/ace", "data-turbolinks-track" => true %>
+    </head>
+    <body class="admin">
+      <header>
+        <nav class="navbar navbar-default">
+
+          <!-- application logo -->
+          <%= link_to dashboard_path, class: 'navbar-brand' do %>
+            <!-- application logo visible on large screens -->
+            <h1 id="brand" class="logo"><%= image_tag 'marketing/homepage-logo.png', id: 'logo', class: 'img-responsive' %>rebound</h1>
+            <!-- application logo visible on small screens -->
+            <h1 id="brand" class="logo-xs"><%= image_tag 'marketing/homepage-logo.png', id: 'logo', class: 'img-responsive' %></h1>
+          <% end %>
+
+          <!-- main nav toggler (show/hide) -->
+          <a class="toggle-nav btn pull-left" href="#">
+            <i class="icon-reorder"></i>
+          </a>
+
+          <!-- dropdowns -->
+          <ul class="nav">
+
+            <!-- light dropdown -->
+            <li class="dropdown light only-icon">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <!-- ... -->
+              </a>
+              <!-- ... -->
+            </li>
+
+            <!-- medium dropdown & widget -->
+            <li class="dropdown medium only-icon widget">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <!-- ... -->
+              </a>
+              <!-- ... -->
+            </li>
+
+            <!-- dark dropdown & user menu -->
+            <li class="dropdown dark user-menu">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="user-name"><i class="icon-user"></i> <%= current_user.email %></span>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to settings_path do %>
+                    <i class="icon-cog"></i> Settings
+                  <% end %>
+                </li>
+                <% if current_user.present? && current_user.admin? %>
+                <li class="divider"></li>
+                <li><%= switch_user_select %></li>
+                <% end %>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to sign_out_path do %>
+                    <i class="icon-signout"></i> Sign out
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- search form - hidden on phone -->
+          <form action="search_results.html" class="navbar-form navbar-right hidden-xs" method="get">
+            <button class="btn btn-link icon-search" name="button" type="submit"></button>
+            <div class="form-group">
+              <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text">
+            </div>
+          </form>
+        </nav>
+      </header>
+
+      <div id="wrapper">
+        <div id="main-nav-bg"></div>
+        <%= render 'shared/main_nav' %>
+
+
+        <section id="content">
+          <div id="main-container" class="container">
+            <div class="row" id="content-wrapper">
+              <div class="col-xs-12">
+
+                <!-- page header container -->
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="page-header">
+                      <h1 class="pull-left">
+                        <% if content_for? :page_header_title %>
+                          <i class="icon-th"></i>
+                          <span>
+                            <%= yield :page_header_title %>
+                          </span>
+                        <% elsif content_for? :breadcrumb %>
+                          <%= yield :breadcrumb %>
+                        <% end %>
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <%= yield %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <footer id="footer">
+              <div class="footer-wrapper">
+                <div class="row">
+                  <div class="col-sm-6 text">
+                    Copyright © TextMogul Inc. 2014
+                  </div>
+                </div>
+              </div>
+            </footer>
+
+          </div>
+        </section>
+      </div>
+
+      <%= yield :scripts %>
+    </body>
+</html>
