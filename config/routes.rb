@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+
+  resources :admins
+  resources :plans
+  resources :subscriptions
+  resources :subscribers
+
   root 'pages#show', id: 'home'
 
   get "/signin" => "sessions#new", :as => :sign_in
   get "/signout" => "sessions#destroy", :as => :sign_out
   get "/signup" => "accounts#new", :as => :sign_up
   post "/signup" => "accounts#create", :as => :create_account
-  get "/dashboard" => "dashboard#show", :as => :dashboard
   get "/settings" => "users#edit", :as => :settings
 
   resources :accounts, only: [:update]
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :edit, :update]
 
+  resources :broadcasts
 
   controller :contact do
     get :contact, action: :new

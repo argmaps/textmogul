@@ -4,14 +4,13 @@ require File.expand_path("../../config/environment", __FILE__)
 # automatically update test DB against current schema
 ActiveRecord::Migration.maintain_test_schema!
 require 'rspec/rails'
-require 'rspec/autorun'
 
 require 'capybara/rspec'
 Capybara.javascript_driver = :webkit
+#require 'capybara/poltergeist'
+#Capybara.javascript_driver = :poltergeist
 Capybara.run_server = true
 Capybara.default_wait_time = 5
-Capybara.server_port = 6543
-Capybara.app_host = "http://localhost:#{Capybara.server_port}"
 
 require 'webmock/rspec'
 require 'vcr'
@@ -54,4 +53,5 @@ RSpec.configure do |config|
   config.before(:each) { Rails.cache.clear }
 
   config.include ActiveSupport::Testing::TimeHelpers
+  config.include RspecHelpers
 end

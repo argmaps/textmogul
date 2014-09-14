@@ -1,0 +1,21 @@
+<nav id="main-nav">
+  <div class="navigation">
+
+    <ul class="nav nav-stacked">
+      <li class="<%= 'active' if request.path.include?('broadcasts') %>">
+        <%= link_to broadcasts_path do %>
+          <i class="icon-microphone"></i>
+          <span>Broadcasts</span>
+        <% end %>
+      </li>
+
+      <li class="<%= 'active' if request.path.include?('subscribers')%>">
+        <%= link_to subscribers_path do %>
+          <i class="icon-group"></i>
+          <span>Subscribers</span>
+        <% end %>
+      </li>
+    </ul>
+
+  </div>
+</nav>

@@ -24,9 +24,6 @@
 
           <ul class="nav navbar-nav navbar-right pull-right">
             <li>
-              <a href='#pricing'>pricing</a>
-            </li>
-            <li>
               <%= link_to 'contact', contact_path %>
             </li>
             <li>
@@ -44,5 +41,7 @@
         </div>
       </div>
     </div>
+
+    <%= content_for :scripts %>
   </body>
 </html>

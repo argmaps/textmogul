@@ -12,10 +12,11 @@ gem 'high_voltage'
 gem 'stripe', '1.15.0'
 gem 'mail_form'
 gem 'switch_user'
+gem 'countries', '0.9.2'
+gem 'country_select', '1.2.0'
+gem 'twilio-ruby'
 
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'turboboost'

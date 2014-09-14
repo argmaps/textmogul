@@ -5,6 +5,11 @@
 @import 'flatty/dark-theme';
 
 @import 'vendor/nprogress';
+@import 'vendor/card';
+@import 'select2';
+@import 'rails-sass-images';
+@import 'bootstrap-formhelpers-countries.flags';
 
 @import 'marketing/layout';
+@import 'marketing/checkout';
 @import 'marketing/support';

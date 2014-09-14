@@ -14,12 +14,15 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require vendor/jquery/jquery.validate.min
+//= require vendor/select2
 //
 //= require flatty/bootstrap/bootstrap.min
 //= require flatty/theme
 //
 //= require vendor/nprogress
 //= require vendor/card
+//
+//= require admin/initialize.js
 //
 //= require turboboost
 //= require turbolinks

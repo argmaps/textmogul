@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TextMogul</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    "marketing", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  </head>
+  <body class='login contrast-background marketing'>
+    <div class='top-container'>
+      <div class="navbar" role="navigation">
+        <div class="container">
+          <ul class="nav navbar-nav navbar-right pull-right">
+            <li>
+              <%= link_to 'sign in', sign_in_path %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class='middle-container'>
+      <div class='middle-row'>
+        <div class='middle-wrapper'>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -10,16 +10,6 @@
           General
         </a>
       </li>
-      <li>
-        <a data-toggle='tab' href='#mailing-services'>
-          Mailing Services
-        </a>
-      </li>
-      <li>
-        <a data-toggle='tab' href='#embed-code'>
-          Embed Code
-        </a>
-      </li>
     </ul>
 
     <div class="tab-content">
@@ -50,16 +40,6 @@
 
           <%= f.submit "Update", class: 'btn btn-primary' %>
         <% end %>
-      </div>
-      <div id="mailing-services" class="tab-pane col-sm-5">
-        <%= simple_form_for(@account) do |f| %>
-          <%= f.input :mailchimp_api_key, label: 'MailChimp API Key', hint: link_to('How do I find this?', page_path('support/mailchimp'), target: '_blank') %>
-          <%= f.submit "Update", class: 'btn btn-primary' %>
-        <% end %>
-      </div>
-      <div id="embed-code" class="tab-pane col-sm-5">
-        <p>Paste your Rebound embed code right before the closing <code><tt>&lt;/body&gt;</tt></code> tag on your site.</p>
-        <%= render 'shared/embed_code' %>
       </div>
     </div>
   </div>

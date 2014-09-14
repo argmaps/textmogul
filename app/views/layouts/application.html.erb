@@ -1,18 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Textmogul</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
-</html>
-<!DOCTYPE html>
     <head>
         <title>TextMogul</title>
         <meta charset="utf-8">
@@ -24,16 +10,15 @@
 
         <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
         <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        <%= javascript_include_tag "vendor/ace", "data-turbolinks-track" => true %>
     </head>
     <body class="admin">
       <header>
         <nav class="navbar navbar-default">
 
           <!-- application logo -->
-          <%= link_to dashboard_path, class: 'navbar-brand' do %>
+          <%= link_to subscribers_path, class: 'navbar-brand' do %>
             <!-- application logo visible on large screens -->
-            <h1 id="brand" class="logo"><%= image_tag 'marketing/homepage-logo.png', id: 'logo', class: 'img-responsive' %>rebound</h1>
+            <h1 id="brand" class="logo"><%= image_tag 'marketing/homepage-logo.png', id: 'logo', class: 'img-responsive' %>textmogul</h1>
             <!-- application logo visible on small screens -->
             <h1 id="brand" class="logo-xs"><%= image_tag 'marketing/homepage-logo.png', id: 'logo', class: 'img-responsive' %></h1>
           <% end %>
@@ -74,7 +59,7 @@
                     <i class="icon-cog"></i> Settings
                   <% end %>
                 </li>
-                <% if current_user.present? && current_user.admin? %>
+                <% if current_user.present? && current_user.super_user? %>
                 <li class="divider"></li>
                 <li><%= switch_user_select %></li>
                 <% end %>

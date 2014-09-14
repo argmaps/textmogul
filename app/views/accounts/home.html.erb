@@ -1,0 +1,113 @@
+<div class='login-container-header'>
+  <div class='container'>
+    <div class='row' id='homepage-header-row'>
+      <div class='col-sm-12'>
+        <div class='text-center'>
+          <h1 id="pitch">Get ass-kicking text messages every Monday morning</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="login-container homepage">
+  <div class="container">
+    <div class="row marketing">
+
+      <%= render partial: 'shared/flash_messages' %>
+
+      <%= form_for(@subscriber, url: users_path, verb: :post, html: {novalidate: 'novalidate', class: 'form validate-form'}) do |f| %>
+
+        <% email_errors = @subscriber.users.first.errors.messages[:email] %>
+        <div class="form-group <%= 'has-error' if email_errors.present? %>">
+          <div class="controls with-icon-over-input">
+            <%= f.text_field :email, 'data-rule-required' => true, 'data-rule-email' => true, 'class' => 'form-control', 'Placeholder' => 'E-mail', 'type' => 'email', 'spellcheck' => 'false' %>
+            <i class='icon-user text-muted'></i>
+          </div>
+          <% email_errors and email_errors.each do |error_msg| %>
+            <span class="help-block has-error"><%= error_msg %></span>
+          <% end %>
+        </div>
+
+        <% password_errors = @subscriber.users.first.errors.messages[:password] %>
+        <div class="form-group <%= 'has-error' if password_errors.present? %>">
+          <div class="controls with-icon-over-input">
+            <%= f.password_field :password, 'data-rule-required' => true, 'data-rule-minlength' => '6', 'class' => 'form-control', 'Placeholder' => 'Password' %>
+            <i class='icon-lock text-muted'></i>
+          </div>
+          <% password_errors and password_errors.each do |error_msg| %>
+            <span class="help-block has-error"><%= error_msg %></span>
+          <% end %>
+        </div>
+
+        <% phone_errors = @subscriber.users.first.errors.messages[:phone] %>
+        <div class="form-group <%= 'has-error' if phone_errors.present? %>">
+          <div class="controls with-icon-over-input">
+            <%= f.phone_field :phone, 'data-rule-required' => true, 'data-rule-minlength' => '6', 'class' => 'form-control', 'Placeholder' => 'phone' %>
+            <i class='icon-lock text-muted'></i>
+          </div>
+          <% phone_errors and phone_errors.each do |error_msg| %>
+            <span class="help-block has-error"><%= error_msg %></span>
+          <% end %>
+        </div>
+
+        <div class="card-wrapper"></div>
+
+        <span class="payment-errors help-block text-error"></span>
+
+        <% card_errors = @subscriber.subscription.errors.messages[:card] %>
+        <div class="form-group <%= 'has-error' if card_errors.present? %>">
+          <div class="controls">
+            <%= text_field_tag :number, nil, 'data-rule-required' => true, 'spellcheck' => 'false', 'data-stripe' => 'number', 'class' => 'form-control', 'placeholder' => 'Card Number' %>
+          </div>
+          <% card_errors and card_errors.each do |error_msg| %>
+            <span class="help-block has-error"><%= error_msg %></span>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <div class="controls">
+            <%= text_field_tag :name, nil, 'class' => 'form-control', 'placeholder' => 'Full Name', 'data-rule-required' => true %>
+            <%= f.hidden_field :first_name %>
+            <%= f.hidden_field :last_name %>
+          </div>
+        </div>
+
+        <%= f.fields_for(:subscription) do |subscription_form| %>
+          <div class="form-group">
+            <div id="cc-expiry" class="controls col-sm-4">
+              <%= text_field_tag :expiry, nil, 'class' => 'form-control', 'placeholder' => 'MM/YY', 'data-rule-required' => true %>
+              <%= subscription_form.hidden_field :expiration_month, 'data-stripe' => 'exp-month' %>
+              <%= subscription_form.hidden_field :expiration_year, 'data-stripe' => 'exp-year' %>
+            </div>
+            <div class="controls col-sm-3">
+              <%= text_field_tag :cvc, nil, 'data-rule-required' => true, 'spellcheck' => 'false', 'data-stripe' => 'cvc', 'class' => 'form-control', 'placeholder' => 'CVC', 'data-rule-required' => true %>
+            </div>
+          </div>
+
+          <%= subscription_form.hidden_field :last_four %>
+          <%= subscription_form.hidden_field :card_type %>
+          <%= subscription_form.hidden_field :plan_id, value: params[:plan] || @plan_id %>
+        <% end %>
+
+        <div class="form-group" id="sign-up-button-container">
+          <div class="form-controls">
+            <%= f.submit "Sign up", class: 'btn btn-block form-control', id: 'sign-up-button' %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div class='login-container-footer'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <div class='text-center'>
+          <%= link_to '© TextMogul Inc. 2014', 'http://textmogul.io' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

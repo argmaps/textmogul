@@ -68,44 +68,9 @@ strong {
 }
 
 #pitch {
-  font-size: 44px;
-  margin-top: 10px;
-
-  #hello {
-    font-weight: bold;
-  }
-}
-
-#sub-pitch {
-  color: $light-pink;
-  font-size: 17px;
-  line-height: 24px;
-}
-
-#pitch-story {
-  font-size: 17px;
-  line-height: 30px;
-}
-
-#try-it {
-  width: 308px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-
-  h3 {
-    text-decoration: underline;
-    font-family: 'Reenie Beanie';
-    font-size: 60px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-  }
-
-  p {
-    font-family: 'Reenie Beanie';
-    font-size: 36px;
-    line-height: 40px;
-    padding-top: 10px;
-  }
+  font-size: 36px;
+  line-height: 44px;
+  margin-top: 20px;
 }
 
 .homepage {
@@ -119,29 +84,6 @@ strong {
   h3 + p {
     font-size: 16px;
     line-height: 24px;
-  }
-
-  #example {
-    .browser {
-      width: 100%;
-      max-width: 353px;
-      height: 100%;
-    }
-
-    .browser-viewport {
-      overflow: hidden;
-      height: 170px;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    p {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      max-width: 353px;
-    }
   }
 }
 
@@ -248,9 +190,5 @@ strong {
 
   #homepage-header-row {
     margin-top: -20px;
-  }
-
-  #pitch {
-    margin: 0;
   }
 }

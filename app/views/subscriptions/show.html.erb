@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Stripe:</strong>
+  <%= @subscription.stripe_id %>
+</p>
+
+<p>
+  <strong>Plan:</strong>
+  <%= @subscription.plan %>
+</p>
+
+<p>
+  <strong>Subscriber:</strong>
+  <%= @subscription.subscriber %>
+</p>
+
+<p>
+  <strong>Last four:</strong>
+  <%= @subscription.last_four %>
+</p>
+
+<p>
+  <strong>Card type:</strong>
+  <%= @subscription.card_type %>
+</p>
+
+<p>
+  <strong>Expiration month:</strong>
+  <%= @subscription.expiration_month %>
+</p>
+
+<p>
+  <strong>Expiration year:</strong>
+  <%= @subscription.expiration_year %>
+</p>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>

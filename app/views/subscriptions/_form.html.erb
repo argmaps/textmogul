@@ -1,0 +1,17 @@
+<%= simple_form_for(@subscription) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :stripe_id %>
+    <%= f.association :plan %>
+    <%= f.association :subscriber %>
+    <%= f.input :last_four %>
+    <%= f.input :card_type %>
+    <%= f.input :expiration_month %>
+    <%= f.input :expiration_year %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

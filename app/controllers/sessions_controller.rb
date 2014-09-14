@@ -9,7 +9,7 @@ class SessionsController < SecureController
     respond_to do |format|
       if @user = login(adapted_params[:email].downcase, adapted_params[:password], remember_me=true)
         format.json { render json: @user, :status => :ok }
-        format.html { redirect_back_or_to(dashboard_path) }
+        format.html { redirect_back_or_to(broadcasts_path) }
       else
         error_msg = "Login failed. Please try again."
         format.json { render :json => {error: error_msg}, :status => :unprocessable_entity }

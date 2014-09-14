@@ -1,28 +1,12 @@
 class UsersController < AdminController
-  def create
-    @user = User.new(adapted_params)
-
-    respond_to do |format|
-      if @user.save
-        auto_login(@user, true)
-
-        format.json { render :json, status: :ok }
-        format.html { redirect_to dashboard_path }
-      else
-        format.json { render :json => {error: "invalid username-password combination."}, :status => :unprocessable_entity }
-        format.html { render 'new', layout: 'outer_admin' }
-      end
-    end
-  end
+  skip_before_action :require_login, :set_current_user, only: [:new, :create]
 
   def edit
     @user = current_user
-    @account = @user.account
   end
 
   def update
     @user = User.find_by_id!(params[:id])
-    @account = @user.account
 
     respond_to do |format|
       if @user.update_attributes(adapted_params)
@@ -35,6 +19,6 @@ class UsersController < AdminController
 
 private
   def adapted_params
-    params.require(:user).permit(:email, :password, :subdomain, :stripe_api_key)
+    params.require(:user).permit(:email, :password, :subdomain, :stripe_secret_key, :stripe_publishable_key)
   end
 end
